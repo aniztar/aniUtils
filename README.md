@@ -1,2 +1,2 @@
 # aniUtils
-These are a collection of utilities which will make using C convenient.
+A collection of utilities/tools to make using C convenient
