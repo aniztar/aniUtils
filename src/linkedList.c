@@ -1,22 +1,21 @@
 #include "linkedList.h"
 
 /*
-  Function Name:        append
   Function Description: Adding elements at the end of the list
   Parameters passed:    Head of the list and the element to be added
   Return value:         
 */
-int append(intNode *head, int value)
+int append(intNode **head, int value)
 {
   intNode *temp, *node;
-  temp = head;
-  if(head == NULL)
+  temp = *head;
+  if(*head == NULL)
   {
     printf("List is empty! Creating one and adding the element to it..\n");
-    head = (intNode*) malloc(sizeof(intNode));
-    head->value = value;
-    head->next = NULL;
-    printList(head);
+    *head = (intNode*) malloc(sizeof(intNode));
+    (*head)->value = value;
+    (*head)->next = NULL;
+    printList(*head);
     return 0;
   }
   /*Traversing the list till the end*/
@@ -29,7 +28,7 @@ int append(intNode *head, int value)
 
   /*Linking the node to the end of the list*/
   temp->next = node;
-  printList(head);
+  printList(*head);
 
   return 0;
 }
@@ -101,4 +100,38 @@ int printList(intNode *head)
   printf("\n");
   printf("Number of elements in the list: %d\n", count);
   return count;
+}
+
+/*
+  Function Name:        reverseList
+  Function Description: Reverses the elements of the list
+  Parameters passed:    Pointer to the head of the list
+  Return value:         Returns pointer to the new head of the list
+*/
+
+intNode* reverseList(intNode* head)
+{
+  intNode *newHead, *previous, *current, *next;
+  if (head == NULL)
+  {
+    printf("List is empty!");
+    return head;
+  }
+
+  previous = NULL;
+  current = head;
+  next = head->next;
+
+  while(next != NULL)
+  {
+    current->next = previous;
+    previous = current;
+    current = next;
+    next = next->next;
+  }
+  current->next = previous;
+  newHead = current; 
+  printf("List reversed!");
+  printList(newHead);
+  return newHead;
 }
