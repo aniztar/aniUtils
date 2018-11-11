@@ -129,7 +129,9 @@ intNode* reverseList(intNode* head)
     current = next;
     next = next->next;
   }
+  current->next = previous;
   newHead = current; 
   printf("List reversed!");
+  printList(newHead);
   return newHead;
 }
