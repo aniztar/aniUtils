@@ -43,7 +43,14 @@ int main()
     }
     else if(choice == 6)
     {
-      printf("Middle element of the list: %d\n", getMiddle(head)->value);
+      if (getMiddle(head) == NULL)
+      {
+        printf("Empty list. So no middle element!");
+      }
+      else
+      {
+	printf("Middle element of the list: %d\n", getMiddle(head)->value);
+      }
     }
     else if(choice == 7)
     {
