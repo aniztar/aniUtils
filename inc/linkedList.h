@@ -13,3 +13,5 @@ intNode* delete(intNode *head, int value);
 intNode* reverseList(intNode* head);
 
 int printList(intNode *head);
+
+intNode* getMiddle(intNode* head);

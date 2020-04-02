@@ -6,7 +6,7 @@ int main()
   while(1)
   {
     printf("\nWhat do you want to do?\n\n");
-    printf("1. Create a List\n2. Append Elements\n3. Delete node\n4. Reverse list\n5. Print list\n6. Exit\n");
+    printf("1. Create a List\n2. Append Elements\n3. Delete node\n4. Reverse list\n5. Print list\n6. Find Middle\n7. Exit\n");
     printf("Your choice: ");
     scanf("%d", &choice);
     if(choice == 1)
@@ -41,8 +41,11 @@ int main()
     {
       printList(head);
     }
-
     else if(choice == 6)
+    {
+      printf("Middle element of the list: %d\n", getMiddle(head)->value);
+    }
+    else if(choice == 7)
     {
       printf("Exiting!\n");
       exit(1);

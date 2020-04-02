@@ -135,3 +135,16 @@ intNode* reverseList(intNode* head)
   printList(newHead);
   return newHead;
 }
+
+intNode* getMiddle(intNode* head) 
+{
+  if (head == NULL || head->next == NULL) return head;
+  intNode *slow, *fast;
+  slow = fast = head;
+  while(fast != NULL && fast->next != NULL)
+  {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+  return slow;
+}
